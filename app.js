@@ -6,6 +6,7 @@ const menu = [
     price: 15.99,
     img: "./images/item-1.jpeg",
     desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
+   
   },
   {
     id: 2,
@@ -81,5 +82,37 @@ const menu = [
   },
 ];
 
+const newmenu = menu.map(function(value) {
 
 
+  return `    <article class="menu-item">
+  <img src="${value.img}" alt="menu item" class="photo" />
+  <div class="item-info">
+    <header>
+      <h4>${value.title}</h4>
+      <h4 class="price">${value.price}</h4>
+    </header>
+    <p class="item-text">
+     ${value.desc}
+    </p>
+  </div>
+</article>
+`
+})
+
+const newbutton = menu.map(function(value,index) {
+
+  return `<button class='btn' 
+  onclick="filter('${value.category}')">
+  ${value.category}</button>`
+})
+
+function filter(cat)
+{
+  alert(cat);
+
+}
+
+document.getElementById("menu").innerHTML =newmenu.join(" ");
+
+document.getElementById("btn").innerHTML = newbutton.join(" ");
